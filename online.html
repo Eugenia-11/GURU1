@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+     <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $( document ).ready( function() {
+        var jbOffset = $( '.jbMenu' ).offset();
+        $( window ).scroll( function() {
+          if ( $( document ).scrollTop() > jbOffset.top ) {
+            $( '.jbMenu' ).addClass( 'jbFixed' );
+          }
+          else {
+            $( '.jbMenu' ).removeClass( 'jbFixed' );
+          }
+        });
+      } );
+    </script>
+
+   <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
+
+   <meta charset="utf-8">
+   <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+   <title>유연한 검색</title>
+   <style type="text/css">
+        html,body{margin: 0; padding: 0; width: auto; height: 100%;}
+      .header{ width:auto; height:65px; margin-left: 79px; margin-top:12px;
+      background: white; }
+       .section {
+         width:auto; height:auto; background: white;}
+       .section3{
+         margin-left: 70px; margin-right: 70px; }
+       .section4,.section6,.section7 {
+         margin-left: 70px; margin-right: 70px; margin-top: 30px;   }
+       .section5{margin-top: -10px;margin-left: 70px; margin-right: 70px;}
+       .section7{margin-left: 70px; margin-right: 70px; margin-top: 30px; margin-bottom: 60px;}
+      
+       
+   
+       .btn {
+         border: 0  ;
+         background-color: white;
+         border-color: white;
+         border-radius: 20px;
+         padding: 10px;
+       }
+       #btn1 {margin-left:760px;}
+       #btn3 {border-radius: 100px;
+         background-color: white;
+         border: 1px;
+         border-color: lightgray;
+         border-style: solid;
+       }
+       .btn:hover{
+         background-color: whitesmoke;}
+       #btn3:hover{box-shadow: 1px 1px 1px 1px lightgray;
+       border-style: solid;}
+       #필터 {background-color: white;
+         margin-left: 80px;
+         border-radius: 15px;
+         border: 1px;
+         border-color: lightgray;
+         padding: 3px;
+         padding-right: 13px;
+         padding-left: 13px;
+         border-style: solid;}
+
+       #필터:hover{border-color: black;}
+
+       .btn2{background-color: white;
+         margin-left: 7px;
+         border-radius: 15px;
+         border: 1px;
+         border-color: lightgray;
+         font-size: medium;
+         padding-right: 15px;
+         padding-left: 15px;
+         padding-top: 3px;
+         padding-bottom: 3px;
+         border-style: solid;
+       }
+
+       .btn2:hover{border-color: black;}
+       .updown {
+       display: inline;
+       margin-left: 7px;
+      border: 0.1px solid lightgray;
+        width: 3px;}
+
+        .section2 [id*="slide"] {display:none;}
+        #보기 {margin-left: 575px;
+         color: black;}
+
+   
+   /* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+    .section2 .slidewrap {max-width:800px; margin:0 auto; overflow:hidden;position:relative; }
+    .section2 .slidelist {white-space:nowrap;font-size:100;}
+    .section2 .slidelist > li {display:inline-block;vertical-align:left;width:100%;transition:all .5s;}
+    .section2 .slidelist > li > a {display:block; position:relative;}
+
+   /* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+    .section2 .slide-control {position:absolute;top:0;left:0;z-index:10;width:107%;height:100%;}
+   .section2 .slide-control label {position:absolute;z-index:1;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
+    .section2 .slide-control .left {left:-33px;background:url('media/left3.png')center center / 40% no-repeat;}
+    .section2 .slide-control .right {right:25px;background:url('media/right3.png') center center / 40% no-repeat;}
+    .section2 .slide-control [class*="control"] {display:none;}
+    #쿠킹{padding-right: 6px;}
+
+   /* INPUT이 체크되면 변화값이 li까지 전달되는 스타일 */
+    .section2 [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+    .section2 [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+    .section2 [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+   
+   /*  INPUT이 체크되면 변화값이 좌우 슬라이드 버튼을 담고 있는 div 까지 전달되는 스타일 */
+    .section2 [id="slide01"]:checked ~ .slidewrap .control01 {display:block;}
+    .section2 [id="slide02"]:checked ~ .slidewrap .control02 {display:block;}
+    .section2 [id="slide03"]:checked ~ .slidewrap .control03 {display:block;}
+    
+    .btn3{background: whitesmoke;
+     border: 0;
+     border-radius: 15px;
+     font-size: medium;
+     padding-right: 15px;
+     padding-left: 15px;
+     padding-top: 5px;
+     padding-bottom: 5px;}
+
+   
+    
+   
+   .swiper-slide{width: 170px; height: 230px; overflow: hidden; border-radius: 5%;}
+   .swiper-slide>img {width: 100%;}
+  
+   .swiper-slide:hover > .pic1 {display: none}
+   .swiper-slide:hover>.pic2 {transform:scale(1.1); transition: transform 2.5s; }
+
+   #모두보기{width: 170px; height: 230px; padding-top: 160px; border: 0; background: white;}
+   #설명 {width: auto; height: auto;}
+   .swiper-button-prev1{
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/left6.png);}
+   .swiper-button-next1{ /*right: 70px;*/
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/right6.png);}
+   .swiper-button-prev2{
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/left6.png);}
+   .swiper-button-next2{ /*right: 70px;*/
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/right6.png);}
+  .swiper-button-prev3{
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/left6.png);}
+   .swiper-button-next3{ /*right: 70px;*/
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/right6.png);}
+   .swiper-button-prev4{
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/left6.png);}
+   .swiper-button-next4{ /*right: 70px;*/
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/right6.png);}
+   .swiper-button-prev5{
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/left6.png);}
+   .swiper-button-next5{ /*right: 70px;*/
+      width: 40px; height: 40px; text-indent: -9999px; overflow: hidden; background: url(media/right6.png);}
+
+      #신규{width: auto; height: auto;}
+      button.하트버튼{ position: absolute; top: 2px; left: 125px; background: none; border: none;}
+      button.하트버튼2{ position: absolute; top: 2px; left: 125px; background: none; border: none;}
+      #설명높이{height: 110px;}
+
+     footer{background-color: rgb(243, 243, 243);}
+      .horizon{
+      background-color: lightgray;
+      height: 1px;}
+
+     .menu__up td{
+      vertical-align: top;
+      width: 400px;}
+
+    .menu__up ul li{
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: 10;   
+      list-style: none;}
+
+    .menu__up h4{
+      color: #222222;
+      font-size: 13px;}
+
+   
+   .menu__up {margin-left: 70px;}
+   .menu__up ul {padding: 0;
+    margin-right: 30px;}
+
+   .menu__down{margin-left: 70px; margin-right: 70px; border-top: 1px solid lightgray; padding-top: 15px; padding-bottom: 15px;}
+   .menu__down2{      font-size: 14px;
+      font-weight: 500;}
+
+   #하단메뉴하이퍼{color: black; text-decoration: none;}
+   #하단메뉴하이퍼:hover{text-decoration: underline;}
+   #하단메뉴하이퍼2{color: black;}
+
+   .swiper-slide:hover > .pic1-1 {display: none} 
+   .pic2-1{display: none;}
+   .swiper-slide:hover>.pic2-1 { display: inline; position: absolute; }
+   #더보기버튼{padding-right: 30px; padding-left: 30px; padding-top: 15px; padding-bottom: 15px; border-radius: 10px; border: 0; background:black; color: white; margin-left: 585px;}
+
+   .jbFixed {
+      position: fixed;
+      top: 0px;
+      }
+
+   .jbMenu { background-color: white;
+            z-index:100; }
+   
+
+   </style>
+
+   
+</head>
+<body>
+<header class="header"> <table><td><a href="https://www.airbnb.co.kr/"><img src="media/logo.jpg" width="115px" height="48px" ></a></td><td> <button type="button" class="btn" id="btn1"> <img src="media/호스트되기.png" width="80px"></button> </td><td><button type="button" class="btn" id="btn2"> <img src="media/global.png" width="20px"></button></td><td><button type="button" class="btn_2" id="btn3"> <img src="media/login2.png" width="60px"></button></td></table>
+</header>
+<section class="section"><img src="media/explain.jpg" width=100%></section>
+<div class="jbMenu"><table><td>
+<button type="button" id="필터"> <img src="media/filter2.jpg" width="60px"></button></td><td><button type="button" class="btn2" id="날짜">날짜</button></td><td><button type="button" class="btn2" id="일행당 인원 수">일행당 인원 수</button></td><td><div class="updown"></div></td>
+
+<td><div class="section2">
+   <input type="radio" name="slide" id="slide01" checked >
+   <input type="radio" name="slide" id="slide02">
+   <input type="radio" name="slide" id="slide03">
+   <div class="slidewrap">
+      <ul class="slidelist">
+         <li>
+            <a>
+               
+               <button type="button" class="btn3" id="단체로 즐기기에 적합">단체로 즐기기에 적합</button>
+               <button type="button" class="btn3" id="가족이 즐기기에 적합">가족이 즐기기에 적합</button>
+               <button type="button" class="btn3" id="동물">동물</button>
+               <button type="button" class="btn3" id="예술 및 글쓰기">예술 및 글쓰기</button>
+               <button type="button" class="btn3" id="베이킹">베이킹</button>
+               <button type="button" class="btn3" id="쿠킹">쿠킹</button>
+
+            </a>
+         </li>
+         <li>
+            <a>
+               <!-- <img src="media/slide02.jpg"> -->
+               <button type="button" class="btn3" id="쿠킹2">쿠킹</button>
+               <button type="button" class="btn3" id="댄스">댄스</button>
+               <button type="button" class="btn3" id="음주">음주</button>
+               <button type="button" class="btn3" id="엔터테인먼트">엔터테인먼트</button>
+               <button type="button" class="btn3" id="피트니스">피트니스</button>
+               <button type="button" class="btn3" id="역사">역사</button>
+               <button type="button" class="btn3" id="문화">문화</button>
+               <button type="button" class="btn3" id="마술">마술</button>
+               <button type="button" class="btn3" id="음악">음악</button>
+            
+            </a>
+         </li>
+         <li>
+            <a>
+               <button type="button" class="btn3" id="음악">음악</button>
+               <button type="button" class="btn3" id="사회공헌">사회공헌</button>
+               <button type="button" class="btn3" id="웰빙">웰빙</button>
+               <button type="button" class="btn3" id="올림픽/패럴림픽 출전 선수">올림픽/패럴림픽 출전 선수</button>
+               <button type="button" class="btn3" id="접근성을 고려해 기획된 체험">접근성을 고려해 기획된 체험</button>
+            </a>
+         </li>
+      </ul>
+
+      <div class="slide-control">
+         <div class="control01">
+      <label for="slide02" class="right"></label>
+         </div>
+         <div class="control02">
+            <label for="slide01" class="left"></label>
+            <label for="slide03" class="right"></label>
+         </div>
+         <div class="control03">
+            <label for="slide02" class="left"></label>
+            <label for="slide01" class="right"></label>
+         </div>
+      </div>
+   </div>
+</div>
+</td>
+</table>
+</div>
+<div class="horizon"></div>
+<section class="  section3">
+<table><tr><td><h2><b>올림픽 분위기에 흠뻑 취해보세요</b></h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td><a id="보기" href="https://www.airbnb.co.kr/s/all?refinement_paths%5B%5D=%2Fplaylists%2F48971&flexible_trip_dates%5B%5D=august&flexible_trip_dates%5B%5D=september&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&rank_mode=default&click_referer=t%3ASEE_ALL%7Csid%3Ac3d372f9-191f-490e-aad6-76cb6d00f740%7Cst%3AEXPERIENCES_SELECTED_TAGS_GROUPING&last_search_session_id=c3d372f9-191f-490e-aad6-76cb6d00f740&search_type=section_navigation"><b>보기(10개)</b></a><td>&nbsp;</td><td><div class="swiper-button-prev1"></div></td><td>
+      <div class="swiper-button-next1"></div></td></tr></table>
+
+      <div class="outbutton">
+      <div class="swiper-container mySwiper1">
+         <div class="swiper-wrapper">
+
+       <div class="swiper-slide" ><img src="media/nation/미국.jpeg" class="pic1" >
+               <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/미국2.jpeg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+            <div class="swiper-slide" ><img src="media/nation/캐나다.jpeg" class="pic1" >
+               <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/캐나다2.jpeg" class="pic2" >
+            <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/nation/영국.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/영국2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/nation/미국2-1.jpeg" class="pic1" >
+           <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/미국2-2.jpeg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide"><img src="media/nation/미국3-1.jpg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/미국3-2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/nation/미국4-1.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/미국4-2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/nation/미국4-1.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/미국4-2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/nation/오스트.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/오스트2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide"><img src="media/nation/미국5-1.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/미국5-2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/nation/미국6-1.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/미국6-2.jpeg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/nation/미국7-1.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/nation/미국7-2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" id="모두보기테두리"><img src="media/모두보기.png" ></div>
+      </div>
+    </div>
+
+   </div>
+   <div class="outbutton">
+    <div class="swiper-container mySwiper1">
+      <div class="swiper-wrapper" id="설명높이">
+        <div class="swiper-slide" id="설명"><img src="media/미국설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/캐나다설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/영국설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/미국2설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/미국3설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/미국4설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/미국4설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/오스트설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/미국5설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/미국6설명.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/미국7설명.png"></div>
+       
+      </div>
+    </div>
+    </div>
+
+   </section>
+    
+    <section class="section4">
+      <table class="6시간표"><tr><td><h2><b>6시간 이내 시작</b></h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td><a id="보기" href="https://www.airbnb.co.kr/s/experiences?refinement_paths%5B%5D=%2Fexperiences%2Fsection%2FEXPERIENCES_SELECTED_TIME_TYPE_GROUPING%3ASTARTING_SOON&flexible_trip_dates%5B%5D=august&flexible_trip_dates%5B%5D=september&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&rank_mode=default&click_referer=t%3ASEE_ALL%7Csid%3A9bc2404b-94ed-4faf-8bbf-03cfb1a57f70%7Cst%3AEXPERIENCES_SELECTED_TIME_TYPE_GROUPING&last_search_session_id=9bc2404b-94ed-4faf-8bbf-03cfb1a57f70&search_type=section_navigation"><b>보기(59개)</b></a><td>&nbsp;</td><td><div class="swiper-button-prev2"></div></td><td>
+      <div class="swiper-button-next2"></div></td></tr></table>
+      <div class="outbutton">
+      <div class="swiper-container mySwiper2">
+         <div class="swiper-wrapper">
+
+             <div class="swiper-slide" ></button><img src="media/6/중국.png" class="pic1-1" >
+               <img src="media/6/중국2.png"  class="pic2-1" ></div>
+
+         <div class="swiper-slide"></button><img src="media/6/중국3.png" class="pic1-1"  >
+               <img src="media/6/중국4.png"  class="pic2-1" ></div>
+
+            <div class="swiper-slide"></button><img src="media/6/베트남.png" class="pic1-1" >
+               <img src="media/6/베트남2.png"  class="pic2-1" ></div>
+
+            <div class="swiper-slide"></button><img src="media/6/인도.png" class="pic1-1" >
+               <img src="media/6/인도2.png"  class="pic2-1" ></div>
+
+         <div class="swiper-slide"></button><img src="media/6/스리랑카.png" class="pic1-1" >
+               <img src="media/6/스리랑카2.png"  class="pic2-1" ></div>
+
+            <div class="swiper-slide"></button><img src="media/6/스페인.png" class="pic1-1" >
+               <img src="media/6/스페인2.png"  class="pic2-1" ></div>
+      </div>
+    </div>
+
+   </div>
+</section>
+
+</section>
+ <section class="section5">
+      <table><tr><td><h2><b>베스트셀러 체험</b></h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td><a id="보기" href="https://www.airbnb.co.kr/s/experiences?refinement_paths%5B%5D=%2Fexperiences%2Fsection%2FEXPERIENCES_TOP_BOOKED_ONLINE_GROUPING%3ATOP_BOOKED&flexible_trip_dates%5B%5D=august&flexible_trip_dates%5B%5D=september&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&rank_mode=default&click_referer=t%3ASEE_ALL%7Csid%3Aae3e5920-6222-45b2-9fcb-9b30ea54cf07%7Cst%3AEXPERIENCES_TOP_BOOKED_ONLINE_GROUPING&last_search_session_id=ae3e5920-6222-45b2-9fcb-9b30ea54cf07&search_type=section_navigation"><b>보기(454개)</b></a><td>&nbsp;</td><td><div class="swiper-button-prev3"></div></td><td>
+      <div class="swiper-button-next3"></div></td></tr></table>
+
+      <div class="outbutton">
+      <div class="swiper-container mySwiper3">
+         <div class="swiper-wrapper">
+
+            <div class="swiper-slide" ></button><img src="media/best/영국.jpg" class="pic1" >
+               <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/영국2.jpg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+            <div class="swiper-slide" ><img src="media/best/캐나다.jpeg" class="pic1" >
+               <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/캐나다2.jpeg" class="pic2" >
+            <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/best/미국.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/미국2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/best/미국2-1.jpg" class="pic1" >
+           <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/미국2-2.jpeg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide"><img src="media/best/영국2-1.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/영국2-2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/best/미국3-1.jpg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/미국3-2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/best/미국4-1.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/미국4-2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/best/그리스.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/그리스2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide"><img src="media/best/멕시코.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/멕시코2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/best/아르헨티나.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/아르헨티나2.jpeg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/best/남아프리카.jpg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/best/남아프리카2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" id="모두보기테두리"><img src="media/모두보기.png" ></div>
+      </div>
+    </div>
+
+   </div>
+   <div class="outbutton">
+    <div class="swiper-container mySwiper3">
+      <div class="swiper-wrapper" id="설명높이">
+        <div class="swiper-slide" id="설명"><img src="media/best2/영국.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/캐나다.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/미국2.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/미국3.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/영국2.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/미국4.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/미국6.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/그리스.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/멕시코.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/아르헨티나.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/best2/남아프리카.png"></div>
+       
+      </div>
+    </div>
+    </div>
+</section>
+ <section class="section6">
+      <table><tr><td><h1><b>이번 주 신규 등록 체험&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></h1><td><div class="swiper-button-prev4"></div></td><td>
+      <div class="swiper-button-next4"></div></td></tr></table>
+      <div class="outbutton">
+      <div class="swiper-container mySwiper4">
+         <div class="swiper-wrapper">
+
+            <div class="swiper-slide" id="신규" ><img src="media/신규1.png"></div>
+               
+            <div class="swiper-slide" id="신규"><img src="media/신규2.png"></div>
+         
+        <div class="swiper-slide" id="신규"><img src="media/신규3.png"></div>
+            
+        <div class="swiper-slide" id="신규"><img src="media/신규4.png"></div>
+               
+        <div class="swiper-slide"id="신규"><img src="media/신규5.png"></div>
+            
+        <div class="swiper-slide" id="신규"><img src="media/신규6.png"></div>
+               
+        <div class="swiper-slide" id="신규"><img src="media/신규7.png"></div>
+               
+        <div class="swiper-slide" id="신규"><img src="media/신규8.png"></div>
+            
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section7">
+      <table><tr><td><h2><b>이번 주말에 즐길 수 있는 체험</b></h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td><a id="보기" href="https://www.airbnb.co.kr/s/experiences?refinement_paths%5B%5D=%2Fexperiences%2Fsection%2FEXPERIENCES_SELECTED_TIME_TYPE_GROUPING%3ATHIS_WEEKEND&flexible_trip_dates%5B%5D=august&flexible_trip_dates%5B%5D=september&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&rank_mode=default&click_referer=t%3ASEE_ALL%7Csid%3Ac52d00e9-1a3a-40c4-bdde-2967f595ee95%7Cst%3AEXPERIENCES_SELECTED_TIME_TYPE_GROUPING&last_search_session_id=c52d00e9-1a3a-40c4-bdde-2967f595ee95&search_type=section_navigation"><b>보기(113개)</b></a><td>&nbsp;</td><td><div class="swiper-button-prev5"></div></td><td>
+      <div class="swiper-button-next5"></div></td></tr></table>
+
+      <div class="outbutton">
+      <div class="swiper-container mySwiper5">
+         <div class="swiper-wrapper">
+
+        <div class="swiper-slide" ></button><img src="media/weekend/일본.jpeg" class="pic1" >
+               <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/일본2.jpeg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+            <div class="swiper-slide" ><img src="media/weekend/한국.jpeg" class="pic1" >
+               <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/한국2.jpeg" class="pic2" >
+            <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/weekend/중국.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/중국2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/weekend/스페인.jpg" class="pic1" >
+           <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/스페인2.jpeg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide"><img src="media/weekend/멕시코.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/멕시코2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/weekend/한국2-1.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/한국2-2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/weekend/멕시코2-1.jpg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/멕시코2-2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/weekend/영국.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/영국2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide"><img src="media/weekend/미국.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/미국2.jpg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/weekend/아이슬란드.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/아이슬란드2.jpg" class="pic2" >
+               <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" ><img src="media/weekend/체코.jpeg" class="pic1" >
+         <button type="button" class="하트버튼"><img src="media/하트.png" width="40px" ></button>
+               <img src="media/weekend/체코2.jpeg" class="pic2" >
+              <button type="button" class="하트버튼2"><img src="media/하트.png" width="40px" ></button></div>
+
+        <div class="swiper-slide" id="모두보기테두리"><img src="media/모두보기.png" ></div>
+      </div>
+    </div>
+
+   </div>
+   <div class="outbutton">
+    <div class="swiper-container mySwiper5">
+      <div class="swiper-wrapper" id="설명높이">
+        <div class="swiper-slide" id="설명"><img src="media/weekend2/일본.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/한국.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/중국.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/스페인.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/멕시코.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/한국2.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/멕시코2.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/영국.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/미국.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/아이슬란드.png"></div>
+        <div class="swiper-slide"id="설명"><img src="media/weekend2/체코.png"></div>
+       
+      </div>
+    </div>
+    </div>
+
+</section>
+<section class="더보기버튼영역">
+    <button type="button" id="더보기버튼"><b>더보기</b></button></section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper1", {
+        slidesPerView: 6,
+        spaceBetween: 15,
+        slidesPerGroup:6,
+        loop: true,
+        loopFillGroupWithBlank: true,
+               navigation: {
+          nextEl: ".swiper-button-next1",
+          prevEl: ".swiper-button-prev1",
+        },
+      });
+      var swiper = new Swiper(".mySwiper2", {
+        slidesPerView: 3,
+        spaceBetween: 15,
+        slidesPerGroup:3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+       
+        navigation: {
+          nextEl: ".swiper-button-next2",
+          prevEl: ".swiper-button-prev2",
+        },
+      });
+     var swiper = new Swiper(".mySwiper3", {
+        slidesPerView: 6,
+        spaceBetween: 15,
+        slidesPerGroup:6,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: ".swiper-button-next3",
+          prevEl: ".swiper-button-prev3",
+        },
+      });
+     var swiper = new Swiper(".mySwiper4", {
+        slidesPerView: 2,
+        spaceBetween: 15,
+        slidesPerGroup:2,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: ".swiper-button-next4",
+          prevEl: ".swiper-button-prev4",
+        },
+      });
+     var swiper = new Swiper(".mySwiper5", {
+        slidesPerView: 6,
+        spaceBetween: 15,
+        slidesPerGroup:6,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: ".swiper-button-next5",
+          prevEl: ".swiper-button-prev5",
+        },
+      });
+ 
+    </script>
+<footer>
+         <div class="horizon"></div>
+         <div class="footer__area">
+            <table class="menu__up">
+               <td>
+                  <h4>소개</h4>
+                  <ul>
+                     <li><a href=# id="하단메뉴하이퍼">에어비앤비 이용 방법</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">뉴스룸</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">에어비앤비 2021</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">투자자 정보</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">에어비앤비 플러스</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">에어비앤비 Luxe</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">호텔투나잇</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">에어비앤비 비즈니스 프로그램</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">호스트 분들이 있기에 가능합니다</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">채용정보</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">창립자 편지</a></li>
+                  </ul>
+               </td>
+               
+               
+               <td>
+                  <h4>커뮤니티</h4>
+                  <ul>
+                     <li><a href=# id="하단메뉴하이퍼">다양성 및 소속감</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">접근성</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">에어비앤비 어소시에이트</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">구호 인력을 위한 숙소</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">게스트 추천</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">Airbnb.org</a></li>
+                  </ul>
+               </td>
+
+               <td>
+                  <h4>호스팅하기</h4>
+                  <ul>
+                     <li><a href=# id="하단메뉴하이퍼">숙소 호스팅</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">온라인 체험 호스팅하기</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">체험 호스팅하기</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">책임감 있는 호스팅</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">자료 센터</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">커뮤니티 센터</a></li>
+                  </ul>
+               </td>
+
+               <td>
+                  <h4>에어비앤비 지원</h4>
+                  <ul>
+                     <li><a href=# id="하단메뉴하이퍼">에어비앤비의 코로나19 대응 방안</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">도움말 센터</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">예약 취소 옵션</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">에어비앤비 이웃 민원 지원</a></li>
+                     <li><a href=# id="하단메뉴하이퍼">신뢰와 안전</a></li>
+                  </ul>
+               </td>
+            </table>
+         </div>      
+         <section class="menu__down">
+            <table class="menu__down2"><tr><td>&copy; 2021 Airbnb, Inc. <span>·</span> <a href=# id="하단메뉴하이퍼">개인정보 처리방침</a> &nbsp;<span>·</span><a href=# id="하단메뉴하이퍼"> 이용약관</a>&nbsp;<span>·</span><a href=# id="하단메뉴하이퍼"> 사이트맵</a>&nbsp;<span>·</span><a href=# id="하단메뉴하이퍼"> 한국의 변경된 환불 정책</a>&nbsp;<span>·</span><a href=# id="하단메뉴하이퍼"> 회사 세부정보</a>&nbsp;&nbsp; </td><td><img src="media/global2.png" width="20px">&nbsp;&nbsp;</td><td><a href=# id="하단메뉴하이퍼2">한국어(KR)</a>&nbsp;&nbsp;&nbsp;<span>₩</span>&nbsp;&nbsp;&nbsp;<a href=# id="하단메뉴하이퍼2">KRW</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img src="media/facebook.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img src="media/twitter.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img src="media/insta.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img src="media/blog.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;</td><td><img src="media/pencil.png" width="20px">&nbsp;&nbsp;</td></tr></table>
+         </section>
+
+</body>
+</html>

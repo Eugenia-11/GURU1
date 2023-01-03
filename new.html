@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+  <title>모든 위치 · 숙소 · Airbnb</title>
+  
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+
+     $(document).ready(function(){
+
+    var navHeight = $(".header").height(); 
+
+    $(".scroll_tab").hide();
+    
+
+    $(window).scroll(function(){
+        var rollIt = $(this).scrollTop() >= navHeight; 
+
+
+    if(rollIt){ 
+            $(".scroll_tab").show().css({"position":"fixed"});
+
+        }
+        else{
+            $(".scroll_tab").hide();
+        }
+    });
+    
+});
+  </script>
+
+
+  <style type="text/css">
+  *{
+   margin: 0px;
+   padding: 0px;
+}
+    nav {
+  display: grid;
+  grid-template-columns:  auto auto;
+  justify-content:  space-between;
+}
+
+.logo{
+  margin: 5px 0 0 10px;
+  color:  black;
+  font-size:  35px;
+  font-weight:  800;
+}
+
+.menu ul {
+  display:  grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 30px;
+  list-style-type:  none;
+}
+
+.menu ul a{
+  text-decoration: none;
+  color:  black;
+  font-weight: 800;
+}
+
+
+   .jbFixed {
+      position: fixed;
+      top: 0px;
+      }
+
+   .tab_content { width: auto; background-color: white;
+            z-index:100; }
+   
+.scroll_tab{ width: auto; background-color: white;
+            z-index:101; margin-top: 0px;}
+  </style>
+</head>
+
+<body>
+    <div class="scroll_tab">
+    <input type="radio" name="tabmenu" id="tab01" checked>
+  <label for="tab01"><img class="_b66ajx" src="https://a0.muscache.com/pictures/ac09b78a-19c0-46fc-b604-fc90a8912864.jpg" width="16" height="18" alt="">&nbsp;트리하우스</label>
+  <input type="radio" name="tabmenu" id="tab02">
+  <label for="tab02">해변 근처</label>
+  <input type="radio" name="tabmenu" id="tab03">
+  <label for="tab03">화물 컨테이너</label>
+  <input type="radio" name="tabmenu" id="tab04">
+  <label for="tab04">초소형 주택</label>
+  <input type="radio" name="tabmenu" id="tab05">
+  <label for="tab05">섬</label>
+  <input type="radio" name="tabmenu" id="tab06">
+  <label for="tab06">통나무집</label>
+  <input type="radio" name="tabmenu" id="tab07">
+  <label for="tab07">돔</label>
+  <input type="radio" name="tabmenu" id="tab08">
+  <label for="tab08">농장</label>
+  <input type="radio" name="tabmenu" id="tab09">
+  <label for="tab09">성</label>
+  <input type="radio" name="tabmenu" id="tab10">
+  <label for="tab10">유르트</label>
+  <input type="radio" name="tabmenu" id="tab11">
+  <label for="tab11">캠핑카</label>
+  <input type="radio" name="tabmenu" id="tab12">
+  <label for="tab12">하우스보트</label>
+  <input type="radio" name="tabmenu" id="tab13">
+  <label for="tab13">보트</label>
+  <input type="radio" name="tabmenu" id="tab14">
+  <label for="tab14">A자형 주택</label>
+  <input type="radio" name="tabmenu" id="tab15">
+  <label for="tab15">헛간</label>
+  <input type="radio" name="tabmenu" id="tab16">
+  <label for="tab16"></label>
+  <input type="radio" name="tabmenu" id="tab17">
+  <label for="tab17"></label>
+  <input type="radio" name="tabmenu" id="tab19">
+  <label for="tab19"><img src="./media/anywhere.png" width="90"height="45"></label>
+  <input type="radio" name="tabmenu" id="tab20">
+  <label for="tab20"><img src="./media/people.png" width="90"height="45"></label>
+  <input type="radio" name="tabmenu" id="tab21">
+  <label for="tab21"><img src="./media/filter.png" width="90"height="45"></label>
+</div>
+<header class="header"> <table><td><a href="https://www.airbnb.co.kr/"><img src="./media/logo.jpg" width="115px" height="48px" ></a></td><td> <button type="button" class="btn" id="btn1"> <img src="./media/호스트되기.png" width="80px"></button> </td><td><button type="button" class="btn" id="btn2"> <img src="media/global.png" width="20px"></button></td><td><button type="button" class="btn_2" id="btn3"> <img src="media/login2.png" width="60px"></button></td></table>
+</header>
+
+<style type="text/css">
+       .btn {
+         border: 0  ;
+         background-color: white;
+         border-color: white;
+         border-radius: 20px;
+         padding: 10px;
+       }
+       #btn1 {margin-left:1500px;}
+       #btn3 {border-radius: 100px;
+         background-color: white;
+         border: 1px;
+         border-color: lightgray;
+         border-style: solid;
+       }
+       .btn:hover{
+         background-color: whitesmoke;}
+       #btn3:hover{box-shadow: 1px 1px 1px 1px lightgray;
+       border-style: solid;}
+       #필터 {background-color: white;
+         margin-left: 80px;
+         border-radius: 15px;
+         border: 1px;
+         border-color: lightgray;
+         padding: 3px;
+         padding-right: 13px;
+         padding-left: 13px;
+         border-style: solid;}
+
+       #필터:hover{border-color: black;}
+
+       .btn2{background-color: white;
+         margin-left: 7px;
+         border-radius: 15px;
+         border: 1px;
+         border-color: lightgray;
+         font-size: medium;
+         padding-right: 15px;
+         padding-left: 15px;
+         padding-top: 3px;
+         padding-bottom: 3px;
+         border-style: solid;
+       }
+
+       .btn2:hover{border-color: black;}
+       .updown {
+       display: inline;
+       margin-left: 7px;
+      border: 0.1px solid lightgray;
+        width: 3px;}
+
+        .section2 [id*="slide"] {display:none;}
+        #보기 {margin-left: 575px;
+         color: black;}
+
+   
+   /* 슬라이드 영역 - max-width 크기를 조절해주면 됩니다*/
+    .section2 .slidewrap {max-width:800px; margin:0 auto; overflow:hidden;position:relative; }
+    .section2 .slidelist {white-space:nowrap;font-size:100;}
+    .section2 .slidelist > li {display:inline-block;vertical-align:left;width:100%;transition:all .5s;}
+    .section2 .slidelist > li > a {display:block; position:relative;}
+
+   /* 좌우로 넘기는 LABEL버튼에 대한 스타일 */
+    .section2 .slide-control {position:absolute;top:0;left:0;z-index:10;width:107%;height:100%;}
+   .section2 .slide-control label {position:absolute;z-index:1;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
+    .section2 .slide-control .left {left:-33px;background:url('media/left3.png')center center / 40% no-repeat;}
+    .section2 .slide-control .right {right:25px;background:url('media/right3.png') center center / 40% no-repeat;}
+    .section2 .slide-control [class*="control"] {display:none;}
+    #쿠킹{padding-right: 6px;}
+
+   /* INPUT이 체크되면 변화값이 li까지 전달되는 스타일 */
+    .section2 [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+    .section2 [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+    .section2 [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+   
+   /*  INPUT이 체크되면 변화값이 좌우 슬라이드 버튼을 담고 있는 div 까지 전달되는 스타일 */
+    .section2 [id="slide01"]:checked ~ .slidewrap .control01 {display:block;}
+    .section2 [id="slide02"]:checked ~ .slidewrap .control02 {display:block;}
+    .section2 [id="slide03"]:checked ~ .slidewrap .control03 {display:block;}
+    
+    .btn3{background: whitesmoke;
+     border: 0;
+     border-radius: 15px;
+     font-size: medium;
+     padding-right: 15px;
+     padding-left: 15px;
+     padding-top: 5px;
+     padding-bottom: 5px;}
+
+   
+    
+   
+   .swiper-slide{width: 170px; height: 230px; overflow: hidden; border-radius: 5%;}
+   .swiper-slide>img {width: 100%;}
+  
+   .swiper-slide:hover > .pic1 {display: none}
+   .swiper-slide:hover>.pic2 {transform:scale(1.1); transition: transform 2.5s; }
+</style>
+<hr color="#d3d3d3" size=".5px">
+
+<div class="tab_content">
+  <input type="radio" name="tabmenu" id="tab01" checked>
+  <label for="tab01"><img class="_b66ajx" src="https://a0.muscache.com/pictures/ac09b78a-19c0-46fc-b604-fc90a8912864.jpg" width="16" height="18" alt="">&nbsp;트리하우스</label>
+  <input type="radio" name="tabmenu" id="tab02">
+  <label for="tab02">해변 근처</label>
+  <input type="radio" name="tabmenu" id="tab03">
+  <label for="tab03">화물 컨테이너</label>
+  <input type="radio" name="tabmenu" id="tab04">
+  <label for="tab04">초소형 주택</label>
+  <input type="radio" name="tabmenu" id="tab05">
+  <label for="tab05">섬</label>
+  <input type="radio" name="tabmenu" id="tab06">
+  <label for="tab06">통나무집</label>
+  <input type="radio" name="tabmenu" id="tab07">
+  <label for="tab07">돔</label>
+  <input type="radio" name="tabmenu" id="tab08">
+  <label for="tab08">농장</label>
+  <input type="radio" name="tabmenu" id="tab09">
+  <label for="tab09">성</label>
+  <input type="radio" name="tabmenu" id="tab10">
+  <label for="tab10">유르트</label>
+  <input type="radio" name="tabmenu" id="tab11">
+  <label for="tab11">캠핑카</label>
+  <input type="radio" name="tabmenu" id="tab12">
+  <label for="tab12">하우스보트</label>
+  <input type="radio" name="tabmenu" id="tab13">
+  <label for="tab13">보트</label>
+  <input type="radio" name="tabmenu" id="tab14">
+  <label for="tab14">A자형 주택</label>
+  <input type="radio" name="tabmenu" id="tab15">
+  <label for="tab15">헛간</label>
+  <input type="radio" name="tabmenu" id="tab16">
+  <label for="tab16"></label>
+  <input type="radio" name="tabmenu" id="tab17">
+  <label for="tab17"></label>
+  <input type="radio" name="tabmenu" id="tab19">
+  <label for="tab19"><img src="./media/anywhere.png" width="90"height="45"></label>
+  <input type="radio" name="tabmenu" id="tab20">
+  <label for="tab20"><img src="./media/people.png" width="90"height="45"></label>
+  <input type="radio" name="tabmenu" id="tab21">
+  <label for="tab21"><img src="./media/filter.png" width="90"height="45"></label>
+
+
+   
+  <div class="conbox con1"><section>
+      <div class="sec__title"></div>
+      <div class="home__box">
+
+         <div class="home">
+            <div class="home__img"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info1"><strong>Balamban,중부 비사야</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;312,257 / 박<br>3,016km 거리</div>
+            </div>
+         </div>
+
+          <div class="home">
+            <div class="home__img2"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info2"><strong>문나르(Munnar), 케랄라 주</strong>&nbsp;&nbsp;&nbsp; &bsol;177,391 / 박<br>3,026km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img3"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info3"><strong>바기오,Cordillera Adminst...</strong>&nbsp; &bsol;269,264 / 박<br>2,439km</div>
+            </div>
+         </div>
+
+          <div class="home">
+            <div class="home__img4"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info4"><strong>우붓,발리</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;318,639 / 박<br>5,269km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img5"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info5"><strong>Fagu, 히마찰프라데시 주(Him...</strong>&bsol;66,991 / 박<br>4,567km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img6"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info6"><strong>Kecamatan Ubud, 발리</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;73,954 / 박<br>5,268km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img7"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info7"><strong>Jibhi, 히마찰프라데시 주(Him...</strong> &bsol;99,352 / 박<br>4,542km 거리</div>
+            </div>
+         </div>
+
+
+          <div class="home">
+            <div class="home__img8"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info8"><strong>Tegallalang, 발리</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;196,116 / 박<br>5,256km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img9"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info9"><strong>바기오,Cor...</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;136,901 / 박<br>2,439km...</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img10"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info10"><strong>Jibhi, 히마찰프라데시주(him...</strong> &bsol;117,326 / 박<br>4,542km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img11"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info11"><strong>Baturiti, 발리</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;32,323 / 박<br>5,248km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img12"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info12"><strong>Shimla, 히마찰프라데시 주(Hi...</strong> &bsol;56,418 / 박<br>4,567km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img13"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info13"><strong>Blanbatuh, 발리</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;48,890 / 박<br>5,268km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img14"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info14"><strong>Yercaud, 타밀 나두</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;104,772 / 박<br>5,613km</div>
+            </div>
+         </div>
+
+
+      <div class="home">
+            <div class="home__img15"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info15"><strong>Manjumala, 케랄라 주</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;38,917 /박<br> 5,872km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="home">
+            <div class="home__img16"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info16"><strong>Bang pha, ตราด</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;14,072 / 박<br>3,722km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img17"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info17"><strong>Tongchuan, Shaanxi</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;119,040 / 박<br>1,605km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img18"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info18"><strong>Kalpetta, 케랄라 주</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;185,787 / 박<br> 5,807km 거리</div>
+            </div>
+         </div>
+
+      <div class="home">
+            <div class="home__img19"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info19"><strong>Luang Nuea, 치앙마이(Chian...</strong>&bsol;90,944 / 박<br> 3,401km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="home">
+            <div class="home__img20"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="home_info">
+               <div class="info20"><strong>Thirunelly, 케랄라 주</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;52,731 / 박<br>5,796km 거리</div>
+            </div>
+         </div>   
+
+          </div>
+     </section>
+
+<style type="text/css">
+
+.home__box {
+   display:  grid;
+   grid-template-columns: 345px 345px 345px 345px 345px;
+   grid-gap: 1px;
+   margin-left: 75px;
+   margin-top:  20px;
+   margin-bottom: 20px;
+}
+
+.home__img {
+  background-image: url("./media/home1.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info1 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img2 {
+  background-image: url("./media/home2.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info2 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img3 {
+  background-image: url("./media/home3.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info3 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.home__img4 {
+  background-image: url("./media/home4.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info4 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.home__img5 {
+  background-image: url("./media/home5.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info5 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.home__img6 {
+  background-image: url("./media/home6.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info6 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img7 {
+  background-image: url("./media/home7.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info7 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img8 {
+  background-image: url("./media/home8.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info8 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img9 {
+  background-image: url("./media/home9.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info9 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.home__img10 {
+  background-image: url("./media/home10.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info10 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img11 {
+  background-image: url("./media/home11.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info11 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img12 {
+  background-image: url("./media/home12.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info12 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img13 {
+  background-image: url("./media/home13.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info13 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img14 {
+  background-image: url("./media/home14.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info14 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img15 {
+  background-image: url("./media/home15.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info15 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img16 {
+  background-image: url("./media/home16.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info16 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img17 {
+  background-image: url("./media/home17.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info17 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img18 {
+  background-image: url("./media/home18.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info18 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img19 {
+  background-image: url("./media/home19.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info19 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.home__img20 {
+  background-image: url("./media/home20.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info20 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+button.하트버튼{background: none; border: none;}
+
+
+</style>
+
+
+
+
+
+
+
+<br><br>
+
+<div class="pagenum">
+  <ul>  
+    <li><img src="./media/left6.png" width="25px" height="25px" style="background: transparent;"></li>
+    <li><a href="#">1</a></li>  
+    <li><a href="#">2</a></li>  
+    <li><a href="#">3</a></li>  
+    <li><a href="#">4</a></li>  
+    <li><a href="#">5</a></li>  
+    <li><a href="#">...</a></li>  
+    <li><a href="#">15</a></li>
+    <li><img src="./media/right6.png" width="25px" height="25px" style="background: transparent;"></li>
+   
+</ul>
+</div>
+
+<style type="text/css">
+
+.pagenum {
+  display: flex;
+  justify-content: center
+}
+
+ul {
+  list-style:none;
+  float:left;
+  display:inline;
+}
+ul li {
+  float: left;
+}
+ul li a {
+  float:center;
+  padding:24px;
+  margin-right:3px;
+  width:20px;
+  color:#000;
+  font:bold 13px tahoma;
+  border:1px solid white;
+  text-align:center;
+  text-decoration:none;
+}
+
+
+ul li a:hover, ul li a:focus {
+  color: black;
+  border:1px none #E2E2E2;
+  background-color:#E2E2E2;
+  background-size: 1px;
+  border-radius: 70px;
+}
+
+</style>
+
+
+<p align="center" p style="font-size: 14px;">숙소 300개 이상 중 1-20</p>
+<br>
+
+<p align="center" p style="font-size: 12px; color: grey;">전체 요금을 보려면 날짜를 입력하세요. 추가 요금이 적용되고 세금이 추가될 수 있습니다.</p>
+
+<footer>
+         
+         <div class="footer__area">
+            <table class="menu__up">
+               <td>
+                  <h4 style="text-indent: 3em;">소개</h4>
+                  <ul>
+                     <a class="menu_element"><li>에어비앤비 이용 방법</li></a>
+                     <a class="menu_element"><li>뉴스룸</li></a>
+                     <a class="menu_element"><li>에어비앤비 2021</li></a>
+                     <a class="menu_element"><li>투자자 정보</li></a>
+                     <a class="menu_element"><li>에어비앤비 플러스</li></a>
+                     <a class="menu_element"><li>에어비앤비 Luxe</li></a>
+                     <a class="menu_element"><li>호텔투나잇</li></a>
+                     <a class="menu_element"><li>에어비앤비 비즈니스 프로그램</li></a>
+                     <a class="menu_element"><li>호스트 분들이 있기에 가능합니다</li></a>
+                     <a class="menu_element"><li>채용정보</li></a>
+                     <a class="menu_element"><li>창립자 편지</li></a>
+                  </ul>
+               </td>
+               
+               
+               <td>
+                  <h4 style="text-indent: 3em;">커뮤니티</h4>
+                  <ul>
+                     <a class="menu_element"><li>다양성 및 소속감</li></a>
+                     <a class="menu_element"><li>접근성</li></a>
+                     <a class="menu_element"><li>에어비앤비 어소시에이트</li></a>
+                     <a class="menu_element"><li>구호 인력을 위한 숙소</li></a>
+                     <a class="menu_element"><li>게스트 추천</li></a>
+                     <a class="menu_element"><li>Airbnb.org</li></a>
+                  </ul>
+               </td>
+
+               <td>
+                  <h4 style="text-indent: 3em;">호스팅하기</h4>
+                  <ul>
+                     <a class="menu_element"><li>숙소 호스팅</li></a>
+                     <a class="menu_element"><li>온라인 체험 호스팅하기</li></a>
+                     <a class="menu_element"><li>체험 호스팅하기</li></a>
+                     <a class="menu_element"><li>책임감 있는 호스팅</li></a>
+                     <a class="menu_element"><li>자료 센터</li></a>
+                     <a class="menu_element"><li>커뮤니티 센터</li></a>
+                  </ul>
+               </td>
+
+               <td>
+                  <h4 style="text-indent: 3em;">에어비앤비 지원</h4>
+                  <ul>
+                     <a class="menu_element"><li>에어비앤비의 코로나19 대응 방안</li></a>
+                     <a class="menu_element"><li>도움말 센터</li></a>
+                     <a class="menu_element"><li>예약 취소 옵션</li></a>
+                     <a class="menu_element"><li>에어비앤비 이웃 민원 지원</li></a>
+                     <a class="menu_element"><li>신뢰와 안전</li></a>
+                  </ul>
+               </td>
+            </table>
+         </div>      
+
+
+         <div class="menu__down" style="margin-top: 10px;">
+            <section>
+               <div class="company" style="float: left; width: 60%;">
+                  <div class="copyright" style="float: left;">&copy; 2021 Airbnb, Inc.</div>
+
+                  <div class="menu__ul">
+                     <span>· </span><a class="menu_element"><span>개인정보 처리 방침</span></a>&nbsp;
+                     <span>· </span><a class="menu_element"><span>이용 약관</span></a>&nbsp;
+                     <span>· </span><a class="menu_element"><span>사이트맵</span></a>&nbsp;
+                     <span>· </span><a class="menu_element"><span>한국의 변경된 환불 정책</span></a>&nbsp;
+                     <span>· </span><a class="menu_element"><span>회사 세부정보</span></a>
+                  </div>
+               </div>
+
+               <div class="logo__down" style="float: right;"> 
+                  <div class="footer_bottom">
+                     <a class="menu_element"><img src="./media/facebook.png" width="20" height="20"></a>
+                     <a class="menu_element"><img src="./media/twitter.png" width="20" height="20" style=" margin-left:20px"></a>
+                     <a class="menu_element"><img src="./media/insta.png" width="20" height="20" style=" margin-left:20px"></a>
+                     <a class="menu_element"><img src="./media/blog.png" width="20" height="20" style=" margin-left:20px"></a>
+                     <a class="menu_element"><img src="./media/pencil.png" width="20" height="20" style=" margin-left:20px"></a>
+                  
+                 </div>
+               </div>    
+
+               <div id="footer_right">
+                  <div class="kr" style="float: right;" >
+
+                     <div style="float: left;" class="menu_element">
+                        <img src="./media/global.png" width="20" height="20">
+                     </div>
+                     &nbsp;
+                     <div  style="border-bottom: 1px solid; font-size: 14px; float: left; cursor:pointer">
+                        한국어(KR)
+                     </div>&nbsp;&nbsp;
+
+
+
+                     <div style="float: left; margin-left:30px; cursor:pointer;">
+                        ₩
+                     </div>
+                     &nbsp;&nbsp;
+                     <div style="border-bottom: 1px solid; font-size: 15px;font-weight: 380; float: left;  cursor:pointer;">
+                        KRW
+                     </div>
+                     
+                  </div>    
+               
+            </section>
+            
+            
+
+
+         </div>      
+   </footer>
+
+   <style type="text/css">
+
+footer{
+      margin-top: 60px;
+      background-color: rgb(243, 243, 243);
+      height: 570px;
+   }
+
+   .horizon{
+      background-color: lightgray;
+      height: 1px;
+   }
+
+   .menu__up ul li{
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: 10;   
+      list-style: none;
+   }
+   .menu__up h4{
+      color: #222222;
+      font-size: 13px;
+   }
+
+   .menu__up{
+      width: 1548.44px;
+      margin-top: 50px;
+      margin-left: 60px;
+      margin-bottom: 50px;
+   }
+   .menu__up td{
+      vertical-align: top;
+   }
+   .menu__down{
+      width: 1500px;
+      border-top: 1px solid lightgray;
+      margin-left: 80px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+   }
+
+   .copyright{
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-block;
+   }
+   .menu__ul ul li{
+      font-size: 14px;
+      font-weight: 500;
+      float: left;
+      margin-left: 10px;   
+      list-style-type: none;
+   }
+
+   .kr {
+      text-align: right;
+   }
+
+   .kr img{
+      width: 20px;
+      height: 20px;
+   }
+
+   .logo__down img{
+      width: 23px;
+      height: 23px;
+   }
+
+   .logo__down ul{
+      float: right;
+   }
+   .logo__down ul li{
+      list-style-type: none;
+      float: left;
+      margin-left: 20px;
+   }
+
+</style>
+</div>
+  <div class="conbox con2"><section>
+      <div class="sec__title"></div>
+      <div class="beach__box">
+
+         <div class="beach">
+            <div class="beach__img"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info21"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;133,437 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+          <div class="beach">
+            <div class="beach__img2"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info22"><strong>Gwangan 2(i)-dong,부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;235,185 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img3"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info23"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;208,729 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+          <div class="beach">
+            <div class="beach__img4"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info24"><strong>Gwangan 2(i)-dong,부산</strong>&nbsp;&nbsp;&nbsp;&nbsp; &bsol;253,835 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img5"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info25"><strong>Gwangan 2(i)-dong,Suy...</strong>&nbsp;&nbsp;&nbsp;&bsol;253,835 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img6"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info26"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;552,066 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img7"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info27"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;150,799 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+
+          <div class="beach">
+            <div class="beach__img8"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info28"><strong>Gwangan 2(i)-dong,Suyeon...</strong> &bsol;159,266 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img9"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info29"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;225,513 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img10"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info30"><strong>Gampo-eup,Gyeongju,경...</strong> &bsol;116,600 / 박<br>300km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img11"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info31"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;235,033 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img12"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info32"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;158,374 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img13"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info33"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;290,227 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img14"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info34"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;290,277 / 박<br>329km</div>
+            </div>
+         </div>
+
+
+      <div class="beach">
+            <div class="beach__img15"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info35"><strong>Sowon-myeon, Taean-gun...</strong>&nbsp;&nbsp;&bsol;69,657 /박<br> 114km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="beach">
+            <div class="beach__img16"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info36"><strong>Daecheon 5(o)-dong, Borye...</strong>&bsol;115,529 / 박<br>146km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img17"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info37"><strong>수영구, 부산</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &bsol;99,025 / 박<br>329km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img18"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info38"><strong>Seorak-myeon, Gapyeong-...</strong>&nbsp;&bsol;168,752 / 박<br> 42km 거리</div>
+            </div>
+         </div>
+
+      <div class="beach">
+            <div class="beach__img19"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info39"><strong>Gwangan 2(i)-dong,Suyeon...</strong> &bsol;121,306 / 박<br> 329km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="beach">
+            <div class="beach__img20"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="beach_info">
+               <div class="info40"><strong>Gwangan 2(i)-dong,Suyeon...</strong> &bsol;111,899 / 박<br>329km 거리</div>
+            </div>
+         </div>   
+
+          </div>
+     </section>
+
+<style type="text/css">
+
+.beach__box {
+   display:  grid;
+   grid-template-columns: 345px 345px 345px 345px 345px;
+   grid-gap: 1px;
+   margin-left: 75px;
+   margin-top:  20px;
+   margin-bottom: 20px;
+}
+
+.beach__img {
+  background-image: url("./media/beach1.jpg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info21 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img2 {
+  background-image: url("./media/beach2.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info22 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img3 {
+  background-image: url("./media/beach3.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info23 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.beach__img4 {
+  background-image: url("./media/beach4.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info24 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.beach__img5 {
+  background-image: url("./media/beach5.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info25 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.beach__img6 {
+  background-image: url("./media/beach6.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info26 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img7 {
+  background-image: url("./media/beach7.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info27 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img8 {
+  background-image: url("./media/beach8.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info28 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img9 {
+  background-image: url("./media/beach9.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info29 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.beach__img10 {
+  background-image: url("./media/beach10.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info30 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img11 {
+  background-image: url("./media/beach11.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info31 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img12 {
+  background-image: url("./media/beach12.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info32 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img13 {
+  background-image: url("./media/beach13.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info33 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img14 {
+  background-image: url("./media/beach14.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info34 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img15 {
+  background-image: url("./media/beach15.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info35 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img16 {
+  background-image: url("./media/beach16.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info36 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img17 {
+  background-image: url("./media/beach17.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info37 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img18 {
+  background-image: url("./media/beach18.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info38 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img19 {
+  background-image: url("./media/beach19.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info39 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.beach__img20 {
+  background-image: url("./media/beach20.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info40 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+button.하트버튼{background: none; border: none;}
+
+
+</style></div>
+
+  <div class="conbox con3"><section>
+      <div class="sec__title"></div>
+      <div class="goods__box">
+
+         <div class="goods">
+            <div class="goods__img"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info41"><strong>Tangalle, 남부 지방</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;328,628 / 박<br>5,828km 거리</div>
+            </div>
+         </div>
+
+          <div class="goods">
+            <div class="goods__img2"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info42"><strong>우다이푸르, Rajasthan</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;136,867 / 박<br>5,201km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img3"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info43"><strong>Dandeghar, 마하라슈트라 주</strong>&nbsp;&nbsp; &bsol;62,704 / 박<br>5,586km 거리</div>
+            </div>
+         </div>
+
+          <div class="goods">
+            <div class="goods__img4"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info44"><strong>Ichinomiya, Chosel-gun,Chi...</strong> &bsol;118,637 / 박<br>1,219km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img5"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info45"><strong>Ba Vi, Ha Noj</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;202,041 / 박<br>2,770km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img6"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info46"><strong>Almaty, Almaty</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;124,034 / 박<br>4,228km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img7"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info47"><strong>Khet Khlong Toei, Krung The...</strong>&bsol;28,070 / 박<br>3,722km 거리</div>
+            </div>
+         </div>
+
+
+          <div class="goods">
+            <div class="goods__img8"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info48"><strong>Dandeghar, 마하라슈트라 주</strong>&nbsp;&nbsp; &bsol;62,704 / 박<br>5,586km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img9"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info49"><strong>Khet Khlong Toei, Krung The...</strong>&bsol;28,450 / 박<br>3,722km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img10"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info50"><strong>푸켓(Phuket)</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;85,408 / 박<br>4,393km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img11"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info51"><strong>Khet Khlong Toei, Krung The...</strong>&bsol;16,328 / 박<br>3,722km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img12"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info52"><strong>Huzhou, Zhejiang</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;244,102 / 박<br>1,047km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img13"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info53"><strong>Pekan Nanas, Johor</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;112,132 / 박<br>4,674km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img14"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info54"><strong>누와라 엘리야(Nuwara Eliy...</strong> &bsol;157,742 / 박<br>5,762km</div>
+            </div>
+         </div>
+
+
+      <div class="goods">
+            <div class="goods__img15"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info55"><strong>Huzhou, Zhejiang</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;99,628 / 박<br>1,047km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="goods">
+            <div class="goods__img16"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info56"><strong>Zhangjiakou, Hebei</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;295,244 / 박<br>1,050km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img17"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info57"><strong>Cavinti, Calabarzon</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;45,795 / 박<br>2,650km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img18"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info58"><strong>Tagaytay, Calabarrzon</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;70,338 / 박<br> 2,671km 거리</div>
+            </div>
+         </div>
+
+      <div class="goods">
+            <div class="goods__img19"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info59"><strong>Tamil Nadu, 타밀 나두</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bsol;92,435 / 박<br> 5,471km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="goods">
+            <div class="goods__img20"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info60"><strong>라왕(Rawang), 셀랑고르</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bsol;505,485 / 박<br>4,603km 거리</div>
+            </div>
+         </div>   
+
+          </div>
+     </section>
+
+<style type="text/css">
+
+.goods__box {
+   display:  grid;
+   grid-template-columns: 345px 345px 345px 345px 345px;
+   grid-gap: 1px;
+   margin-left: 75px;
+   margin-top:  20px;
+   margin-bottom: 20px;
+}
+
+.goods__img {
+  background-image: url("./media/goods1.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info41 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img2 {
+  background-image: url("./media/goods2.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info42 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img3 {
+  background-image: url("./media/goods3.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info43 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.goods__img4 {
+  background-image: url("./media/goods4.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info44 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.goods__img5 {
+  background-image: url("./media/goods5.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info45 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.goods__img6 {
+  background-image: url("./media/goods6.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info46 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img7 {
+  background-image: url("./media/goods7.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info47 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img8 {
+  background-image: url("./media/goods8.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info48 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img9 {
+  background-image: url("./media/goods9.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info49 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+
+.goods__img10 {
+  background-image: url("./media/goods10.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info50 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img11 {
+  background-image: url("./media/goods11.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info51 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img12 {
+  background-image: url("./media/goods12.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info52 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img13 {
+  background-image: url("./media/goods13.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info53 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img14 {
+  background-image: url("./media/goods14.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info54 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img15 {
+  background-image: url("./media/goods15.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info55 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img16 {
+  background-image: url("./media/goods16.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info56 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img17 {
+  background-image: url("./media/goods17.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info57 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img18 {
+  background-image: url("./media/goods18.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info58 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img19 {
+  background-image: url("./media/goods19.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info59 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.goods__img20 {
+  background-image: url("./media/goods20.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info60 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+button.하트버튼{background: none; border: none;}
+
+
+</style></div>
+
+
+  <div class="conbox con4">초소형 주택</div>
+  <div class="conbox con5"><section>
+      <div class="sec__title"></div>
+      <div class="island__box">
+
+         <div class="island">
+            <div class="island__img"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info61"><strong>sabel Province, Isabel Province</strong><br>6,073km 거리</div>
+            </div>
+         </div>
+
+          <div class="island">
+            <div class="island__img2"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info62"><strong>Coron</strong><br>2,954km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img3"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info63"><strong>MV</strong><br>6,596km 거리</div>
+            </div>
+         </div>
+
+          <div class="island">
+            <div class="island__img4"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info64"><strong>MV</strong><br>6,596km 거리</div>
+            </div>
+         
+         </div>
+
+      <div class="island">
+            <div class="island__img5"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info65"><strong>El Nido</strong><br>3,004km 거리</div>
+            </div>
+            
+         </div>
+
+      <div class="island">
+            <div class="island__img6"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info66"><strong>El Nido, MIMAROPA</strong><br>3,050km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img7"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="goods_info">
+               <div class="info67"><strong>MV</strong><br>6,596km 거리</div>
+            </div>
+           
+         </div>
+
+
+          <div class="island">
+            <div class="island__img8"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info68"><strong>Zhoushan, Zhejiang</strong><br>856km 거리</div>
+            </div>
+           
+         </div>
+
+      <div class="island">
+            <div class="island__img9"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info69"><strong>Hán Đà, Yên Bái</strong><br>2,746km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img10"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info70"><strong>Coron</strong><br>2,954km 거리</div>
+            </div>
+            
+         </div>
+
+      <div class="island">
+            <div class="island__img11"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info71"><strong>El Nido</strong><br>3,004km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img12"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info72"><strong>Beihai, Guangxi</strong><br>2,521km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img13"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info73"><strong>El Nido, MIMAROPA</strong><br>3,050km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img14"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info74"><strong>Anambas, Kepulauan Riau</strong><br>4,359km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="island">
+            <div class="island__img15"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info75"><strong>Bungus Teluk Kabung,S...</strong><br>5,098km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="island">
+            <div class="island__img16"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info76"><strong>말레(Male), 말레(Male)</strong><br>6,536km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img17"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info77"><strong>Coron, MIMAROPA</strong><br>2,918km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img18"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info78"><strong>Cavinti, Calabarzon</strong><br>2,648km 거리</div>
+            </div>
+         </div>
+
+      <div class="island">
+            <div class="island__img19"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info79"><strong>Ligpo Island, Calabarzon</strong><br>2,709km 거리</div>
+            </div>
+         </div>
+
+
+      <div class="island">
+            <div class="island__img20"><button type="button" class="하트버튼" style="float:right;"><img src="./media/하트.png" width="40px" style="background: transparent;"></button></div>
+            <div class="island_info">
+               <div class="info80"><strong>Tambon Patong, Chang...</strong><br>4,383km 거리</div>
+            </div>
+         </div>   
+
+          </div>
+     </section>
+
+<style type="text/css">
+
+.island__box {
+   display:  grid;
+   grid-template-columns: 345px 345px 345px 345px 345px;
+   grid-gap: 1px;
+   margin-left: 75px;
+   margin-top:  20px;
+   margin-bottom: 20px;
+}
+
+.island__img {
+  background-image: url("./media/island1.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-radius:  7px;
+}
+
+.info61 {
+   margin:  5px 0;
+   font-size: 16px;
+}
+
+.island__img2 {
+  background-image: url("./media/island2.jpeg");
+  height: 320px;
+  width:  320px;
+  background-size: 100% 100%;
+  border-r
